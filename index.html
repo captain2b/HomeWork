@@ -6,25 +6,23 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Epam ODM</title>
-    <link rel="stylesheet" href="styles/style.css"/>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 <header>
 
     <a class="logo" href="/">
-        <img src="/img/logo.png" alt="epam"/>
+        <img src="img/logo.png" alt="epam"/>
     </a>
     <a class="odm" href="#">
         odm
     </a>
-    <form class="main-search" action="#">
-        <input id="search-with-icon" type="search" placeholder="Search">
-    </form>
+    <span class="up-search"></span>
 </header>
 <nav>
     <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Documents</a>
+        <li class="link home"><a href="#">Home</a></li>
+        <li class=" active link documents"><a href="#">Documents</a>
             <ul>
                 <li><a href="#">Incoming DOCUMENTS</a></li>
                 <li><a href="#">outgoing DOCUMENTS </a></li>
@@ -37,16 +35,16 @@
 
             </ul>
         </li>
-        <li><a href="#">CALENDAR</a></li>
-        <li><a href="#">ARCHIVE</a></li>
-        <li><a href="#">Nomenclature</a></li>
-        <li><a href="#">Organizations</a></li>
+        <li class="link calendar"><a href="#">CALENDAR</a></li>
+        <li class="link archive"><a href="#">ARCHIVE</a></li>
+        <li class="link nom"><a href="#">Nomenclature</a></li>
+        <li class="link org"><a href="#">Organizations</a></li>
     </ul>
 </nav>
 <main>
-    <section>
-        <button>Create document</button>
-        <button>Attach document</button>
+    <section class="top">
+        <button class="btncreate">Create document</button>
+        <button class="btnattach">Attach document</button>
         <form action="#">
             <input type="search" placeholder="Search"/>
         </form>
@@ -59,8 +57,8 @@
             <li>
                 <a href="#">under my approval</a>
                 <section class="incoming">
-                    <header>
-                        <h1>Incoming documents</h1></header>
+
+                        <h1>Incoming documents</h1>
                     <table>
                         <tr>
                             <th>Incoming date</th>
@@ -126,8 +124,7 @@
 
                 </section>
                 <section>
-                    <header>
-                        <h1>Outgoing documents</h1></header>
+                        <h1>Outgoing documents</h1>
                     <table>
                         <tr>
                             <th>Outgoing date</th>
@@ -181,8 +178,7 @@
                     </table>
                 </section>
                 <section class="fax">
-                    <header>
-                        <h1>Fax documents</h1></header>
+                        <h1>Fax documents</h1>
                     <table>
                         <tr>
                             <th>Incoming date</th>
@@ -253,11 +249,12 @@
     </section>
 </main>
 <footer>
-    <a href="#">Powered by EPAM Systems</a>
+    <span>Powered by <a href="#">EPAM Systems</a></span>
     <ul>
-        <li><a href="#"> About</a></li>
-        <li><a href="#">Help</a></li>
+
         <li><a href="#">Report a bug</a></li>
+        <li><a href="#">Help</a></li>
+        <li><a href="#"> About</a></li>
     </ul>
 </footer>
 <!--<script src="node_modules/require/bin/require-command.js"></script>-->
