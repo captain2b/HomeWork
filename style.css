@@ -77,7 +77,7 @@ nav ul>li>a{
     line-height: 2.6em;
     padding-left: 31px;
 }
-nav ul>li>a:hover{
+nav>ul>li>a:hover{
     background: #31a5b7;
     color:#fff;}
 
@@ -108,13 +108,23 @@ li a:before{
 .link.home>a:before{content: '\f015';}
 .link.nom>a:before{content: '\f03a';}
 .link.org>a:before{content: '\f187';}
-.link.documents>a:after{
+.link.documents>a::after{
     font-family: FontAwesome,sans-serif;
     content: '\f0d7';
     float: right;
     margin-right: 25px;
     color:#fff;
 }
+.link.incomDocs>a>span{
+    width: 33px;
+    height: 33px;
+    text-align: center;
+    float:right;
+    line-height: 33px;
+    margin:4px 12px 0 12px;
+    font-family: FontAwesome,sans-serif;
+}
+.link.incomDocs>a>span:hover{background: #c9eef4;color: #7b7b7b}
 .top>button{
     font-family: "Source Sans Pro", sans-serif;
     font-size: 14px;
