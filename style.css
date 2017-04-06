@@ -1,18 +1,4 @@
-ul{
-    list-style-type: none;
-    margin: 0 auto;
-    padding: 0;
-}
-body{
-    margin: 0 auto;
-    width: 1440px;
-}
-a{
-    color: inherit;
-    text-decoration: none;
-}
-@import url('https://fonts.googleapis.com/css?family=Oswald');
-/* Download font */
+
 @font-face {
     font-family: FontAwesome;
 
@@ -29,12 +15,43 @@ a{
     font-style: normal;
 }
 
+@font-face {
+    font-family: "Source Sans Pro";
+    src: url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+    font-weight: normal;
+
+    font-style: normal;
+}
+@font-face {
+    font-family: "Oswald";
+    src:url('https://fonts.googleapis.com/css?family=Oswald:300,400');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    margin: 0;
+    padding: 0;
+    cursor: auto;
+}
+
+ul{
+    list-style-type: none;
+}
+body{
+    margin: 0 auto;
+
+}
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
 body>header{
     vertical-align: middle;
     height:62px;
     color:#7be7f8;
     background-color:#454446;
-    font-family: 'Oswald', sans-serif;
+    font-family: "Oswald",sans-serif;
     font-size: 1.25em;
     text-transform: uppercase;
 }
@@ -46,7 +63,7 @@ nav{
     width: 250px;
     height: 100%;
     position: absolute;
-    font-family: 'Oswald', sans-serif;
+    font-family: "Oswald",sans-serif;
     text-transform: uppercase;
     color: #fff;
     background-color:#39c2d7;
@@ -56,18 +73,28 @@ nav ul>li>a{
     line-height: 2.6em;
     padding-left: 31px;
 }
+nav ul>li>a:hover{
+    background: #31a5b7;
+    color:#fff;}
+
 nav>ul>li>a{
     border-bottom:1px solid #5dcbdc;}
 nav>ul>li>ul{
     color: #7b7b7b;
     background-color:#e1f6f9;
+
+}
+
+nav>ul>li:hover nav>ul>li>ul{
+    display: block;
+
 }
 .active{
     background: #30a5b7;
 }
 li a:before{
-    font-family: FontAwesome;
-    color:fff;
+    font-family: FontAwesome,sans-serif;
+    color:#fff;
     font-size: 22px;
     margin-right: 1em;
 }
@@ -78,16 +105,23 @@ li a:before{
 .link.nom>a:before{content: '\f03a';}
 .link.org>a:before{content: '\f187';}
 .link.documents>a:after{
-    font-family: FontAwesome;
+    font-family: FontAwesome,sans-serif;
     content: '\f0d7';
     float: right;
     margin-right: 25px;
-    color:fff;
+    color:#fff;
 }
-button{
-    line-height: 2em;
+.top>button{
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 14px;
+    width: 190px;
+    height: 35px;
     text-decoration: none;
     border: none;
+    padding: 0 14px 0 18px;
+}
+.top>button:hover{
+ cursor: pointer;
 }
 .btnattach{
 
@@ -99,73 +133,273 @@ button{
     color: #fff;
 }
 .btnattach:before{
-    font-family: FontAwesome;
+    padding-top: 2px;
+    float: left;
+    font-family: FontAwesome,sans-serif;
     content: '\f0c6';
 }
 .btncreate:before{
+    float: left;
     content: url("img/createdoc.png");
     width: 18px;
     height: 20px;
 }
-.top button:after{
-    font-family: FontAwesome;
-    content: '\f0d7';
+.btncreate:hover.listCreate{
+    display: block;
+}
+.listCreate{
+    display: none;
+}
+.listCreate>ul{
+    display: none;
+}
+.btncreate:after,.btnattach:after{
+    padding-top: 2px;
     float: right;
-    margin-right: 1em;
+    font-family: FontAwesome,sans-serif;
+    content: '\f0d7';
+    margin-right: 0.8em;
 }
 .up-search{
-    font-family:FontAwesome;
+    margin: 1em;
     float: right;
-    content: 'fa-search';
+}
+.up-search::after{
+    float: right;
+    font-family:FontAwesome,sans-serif;
+    color: #cdcdcd;
+    cursor: pointer;
+    content: '\f002';
 }
 .odm{
+    font-size: 18px;
     float: left;
-    padding: 22px 0;
+    padding: 18px 0;
+}
+main{
+    margin-top: 15px;
+    margin-left: 265px;
+    margin-right: 14px;
+    margin-bottom: 3em;
 }
 .top>form{
     float: right;
 }
-main{
-    margin: 14px;
-    float: right;
+.top>form>input{
+    color: #5e5e5e;
+    padding-left: 12px;
+    width: 390px;
+    height: 35px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 14px;
 }
+.top>form>button{
+    border: none;
+    outline: none;
+    background: transparent;
+    position: absolute;
+    top: 86px;
+    cursor: pointer;
+    font-family: FontAwesome, sans-serif;
+    font-size: 20px;
+    color: #acacac;
+}
+.top>form>button#choose{  right: 84px;}
+.top>form>button#search{  right: 60px;}
+.top>form>button#plus{  right: 36px;}
+
 .content{
     margin-top:15px;
     border: 2px solid #d3d3d3;
 }
 .content a{
-   font-family: 'Oswald', sans-serif;
+   font-family: "Oswald", sans-serif;
     font-size: 1em;
     text-transform: uppercase;
     color: #666666;
 }
+.content>ul{
+    display: flex;
+    background: #666666;
+}
+.content>ul>li{
+    display: inline-block;
+}
 .content>ul>li>a{
-    display: block;
+    background: #666666;
+    color: #feffff;
+    line-height: 3em;
+    float: left;
+    padding: auto;
+}
+.tablink>a{
+  padding: 0 20px;
+}
+.tablink.activetab>a{
+    color: #666666;
+    background: #fff;
+}
+.tablink>a:before{
+    color: inherit;
+    font-family:FontAwesome,sans-serif;
+    float: left;
+    content: "\f017";
+}
+.tablink:first-child>a:before{
+    content: "\f040"
+}
+.tablink:last-child>a:before{
+    content: "\f0c0"
+}
+.content h1{
+    cursor: context-menu;
+    font-family: "Oswald", sans-serif;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    color: #666666;
+    font-weight: normal;
+    padding: 18px;
+    display: inline-block;
+}
+.content h1+a{
+    cursor: pointer;
+    font-family: "Oswald", sans-serif;
+    margin-right: 25px;
+    margin-top: 20px;
+    text-decoration: underline;
+    font-size: 14px;
+    text-transform: none;
+    color:#43c7db;
+    position: absolute;
+    padding-top: 0.5em;
+}
+table {
+    text-align: center;
+    border-collapse: collapse;
+    width: 100%;
+    font-family: Source Sans Pro,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
 
 }
+table th{
+    padding-bottom: 1em;
+    vertical-align: bottom;
+}
+table th:first-child{
+    margin-left: 18px;
+    padding-left: 0.5em;
+    float: left;
+    color:#43c7db ;
+    border-bottom: 2px solid #43c7db ;
+}
+table th:first-child:after{
+    display: inline;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    float: right;
+    font-family: FontAwesome,sans-serif;
+    font-weight: 400;
+    content: "\f078";
+    color:#36c3d8 ;
+}
+.tab table p{
+    float: left;
+    display: inline;
+}
+table tr{
+    line-height: 40px;
+}
 
+table tr:first-child{
+    line-height: 1em;
+}
+table tr:nth-child(2n){
+    background: #f1f1f1;
+}
+table th:first-child{
+    margin-left: 1em;
+}
+table td:last-child>a{
+    font-family: FontAwesome,sans-serif;
+    padding: 0.5em;
+}
+table td:last-child>a:first-child:hover{
+    cursor: pointer;
+    background: #39c2d7;
+    color: #fff;
+    transition: 0.2s;
+}
+table td:last-child>a:last-child:hover{
+    cursor: pointer;
+    background: #b32746;
+    color: #fff;
+    transition: 0.2s;
+}
+
+.mark{
+    line-height: 20px;
+    text-transform: capitalize;
+    font-family: "Source Sans Pro",sans-serif;
+    font-size: 12px;
+    width: 65px;
+    height: 20px;
+    color:white;
+}
+.signed.mark{
+    background: #a3c644;
+}
+.awaits.mark{
+    background: #ecc134;
+}
+.approved.mark{
+     background: #39b7ac;
+ }
+.cancelled.mark{
+    background: #b32746;
+}
+.helded.mark{
+     background: #999999;
+ }
+.changed.mark{
+      background: #937ebd;
+  }
+.deleted.mark{
+    background: #eb6a5a;
+}
 footer{
     color: #cdcdcd;
     background-color: #454446;
-    font-family: 'Oswald', sans-serif;
+    font-family: "Source Sans Pro", sans-serif;
     font-size: 1em;
     position: fixed;
-    width: 1440px;
+    width: 100%;
+    height: 60px;
     bottom: 0;
 }
 footer>span{
-    padding: 27px 22px 22px;
+    padding: 22px;
     float: left;
 }
+footer>ul{
+    padding-right:25px ;
+}
 footer>ul>li{
-
     list-style-type: none;
     float: right;}
 footer>ul>li>a {
-    padding: 27px 22px 22px;
+    padding: 18px 0;
     display: block;
 }
-footer>ul:first-child{
-    border-left: 1px solid #d1d0d0;
-    border-right: 1px solid #d1d0d0;
+footer>ul>li>a::before{
+    margin-right: 15px;
+    margin-left: 15px;
+    font-weight: 200;
+    content: "|";
+}
+footer>ul>li:last-child>a::before{
+    opacity: 0;
+}
+footer a:hover{
+    color:white;
 }

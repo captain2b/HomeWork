@@ -7,6 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Epam ODM</title>
     <link rel="stylesheet" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link rel="icon"
+          type="image/png"
+          href="img/favicon.png">
 </head>
 <body>
 <header>
@@ -44,26 +48,67 @@
 <main>
     <section class="top">
         <button class="btncreate">Create document</button>
+        <ul class="listCreate">
+            <li>Incoming Document</li>
+            <li>Outgoing Document</li>
+            <li>Fax Document</li>
+            <li>Warrant</li>
+            <li>Job Description</li>
+            <ul>Contract
+                <li>Rent</li>
+                <li>Construction </li>
+                <li>Security services</li>
+                <li>Sponsorship </li>
+                <li>Maintenance services</li>
+                <li>Furniture/chairs supply</li>
+                <li>Software development and delivery</li>
+                <li>Licences</li>
+                <li>HW supply</li>
+                <li>NDA </li>
+                <li>Services</li>
+                <li>Supply</li>
+                <li>Work contract</li>
+                <li>Contract with individuals</li>
+                <li>Education, seminars & trainings</li>
+                <li>Travel</li>
+                <li>Other</li>
+            </ul>
+        </ul>
         <button class="btnattach">Attach document</button>
+
         <form action="#">
-            <input type="search" placeholder="Search"/>
+            <input type="text" placeholder="Search"/>
+            <button id="choose" type="submit">&#xf0d7</button>
+            <button id="search" type="submit">&#xf002</button>
+            <button id="plus" type="submit">&#xf00e</button>
         </form>
     </section>
     <section class="content">
+
         <ul>
-            <li>
+            <li class="tablink" onclick="openTab(event,'created')">
                 <a href="#">created by me</a>
             </li>
-            <li>
+            <li class="tablink activetab" onclick="openTab(event,'under')">
                 <a href="#">under my approval</a>
+            </li>
+            <li class="tablink" onclick="openTab(event,'sent')">
+                <a href="#">sent for group</a>
+            </li>
+        </ul>
+            <div id="created" class=" tab" style="display:none">
+
+            </div>
+
+            <div id="under" class="tab" >
                 <section class="incoming">
 
-                        <h1>Incoming documents</h1>
+                    <h1>Incoming documents</h1>
                     <table>
                         <tr>
-                            <th>Incoming date</th>
-                            <th>Incoming number</th>
-                            <th>External
+                            <th><p>Incoming<br> date</p></th>
+                            <th>Incoming<br> number</th>
+                            <th>External<br>
                                 Doc. Index</th>
                             <th>External
                                 Doc. Date</th>
@@ -72,9 +117,9 @@
                             <th>Sent From</th>
                             <th>Sent To</th>
                             <th>Executor</th>
-                            <th>Execution
+                            <th>Execution<br>
                                 Date</th>
-                            <th>Execution
+                            <th>Execution<br>
                                 Mark</th>
                             <th>Actions</th>
                         </tr>
@@ -89,8 +134,8 @@
                             <td>EPAM</td>
                             <td>Ivanov Ivan</td>
                             <td>10/15/2015</td>
-                            <td></td>
-                            <td></td>
+                            <td><div class="signed mark">Signed</div></td>
+                            <td><a>&#xf040</a> <a>&#xf00d</a></td>
                         </tr>
                         <tr>
                             <td>07/15/2015</td>
@@ -103,8 +148,8 @@
                             <td>EPAM</td>
                             <td>Ivanov Ivan</td>
                             <td>15/15/2015</td>
-                            <td></td>
-                            <td></td>
+                            <td><div class="mark awaits">Awaits</div></td>
+                            <td><a>&#xf040</a> <a>&#xf00d</a></td>
                         </tr>
                         <tr>
                             <td>07/15/2015</td>
@@ -117,17 +162,17 @@
                             <td>EPAM</td>
                             <td>Ivanov Ivan</td>
                             <td>07/15/2015</td>
-                            <td></td>
-                            <td></td>
+                            <td><div class="cancelled mark">Cancelled</div></td>
+                            <td><a>&#xf040</a> <a>&#xf00d</a></td>
                         </tr>
                     </table>
 
                 </section>
-                <section>
-                        <h1>Outgoing documents</h1>
+                <section class="outgoing">
+                    <h1>Outgoing documents</h1><a>Add element</a>
                     <table>
                         <tr>
-                            <th>Outgoing date</th>
+                            <th><p>Outgoing date</p></th>
                             <th>Reg. number</th>
                             <th>Index</th>
                             <th>Type</th>
@@ -149,7 +194,8 @@
                             <td>Ivanov Ivan</td>
                             <td>Petrov Petr</td>
                             <td></td>
-                            <td></td>
+                            <td><div class="approved mark">approved</div></td>
+                            <td><a>&#xf040</a> <a>&#xf00d</a></td>
                         </tr>
                         <tr>
                             <td>07/15/2015</td>
@@ -161,7 +207,8 @@
                             <td>Ivanov Ivan</td>
                             <td>Petrov Petr</td>
                             <td></td>
-                            <td></td>
+                            <td><div class="helded mark">helded</div></td>
+                            <td><a>&#xf040</a> <a>&#xf00d</a></td>
                         </tr>
                         <tr>
                             <td>07/15/2015</td>
@@ -173,27 +220,28 @@
                             <td>Ivanov Ivan</td>
                             <td>Petrov Petr</td>
                             <td></td>
-                            <td></td>
+                            <td><div class="changed mark">changed</div></td>
+                            <td><a>&#xf040</a> <a>&#xf00d</a></td>
                         </tr>
                     </table>
                 </section>
                 <section class="fax">
-                        <h1>Fax documents</h1>
+                    <h1>Fax documents</h1><a>Add element</a>
                     <table>
                         <tr>
-                            <th>Incoming date</th>
-                            <th>External
+                            <th><p>Incoming <br>date</p></th>
+                            <th>External<br>
                                 Doc. Index</th>
-                            <th>External
+                            <th>External<br>
                                 Doc. Date</th>
                             <th>Type</th>
                             <th>Theme</th>
                             <th>Sent From</th>
                             <th>Sent To</th>
                             <th>Executor</th>
-                            <th>Execution
+                            <th>Execution<br>
                                 Date</th>
-                            <th>Execution
+                            <th>Execution<br>
                                 Mark</th>
                             <th>Actions</th>
                         </tr>
@@ -207,8 +255,8 @@
                             <td>EPAM</td>
                             <td>Ivanov Ivan</td>
                             <td>10/15/2015</td>
-                            <td></td>
-                            <td></td>
+                            <td><div class="deleted mark">deleted</div></td>
+                            <td><a>&#xf040</a> <a>&#xf00d</a></td>
                         </tr>
                         <tr>
                             <td>07/15/2015</td>
@@ -220,8 +268,8 @@
                             <td>EPAM</td>
                             <td>Ivanov Ivan</td>
                             <td>15/15/2015</td>
-                            <td></td>
-                            <td></td>
+                            <td><div class="helded mark">helded</div></td>
+                            <td><a>&#xf040</a> <a>&#xf00d</a></td>
                         </tr>
                         <tr>
                             <td>07/15/2015</td>
@@ -233,19 +281,19 @@
                             <td>EPAM</td>
                             <td>Ivanov Ivan</td>
                             <td>07/15/2015</td>
-                            <td></td>
-                            <td></td>
+                            <td><div class="changed mark">changed</div></td>
+                            <td><a>&#xf040</a> <a>&#xf00d</a></td>
                         </tr>
                     </table>
 
                 </section>
 
+            </div>
 
-            </li>
-            <li>
-                <a href="#">sent for group</a>
-            </li>
-        </ul>
+            <div id="sent" class="tab" style="display:none">
+                <p>something</p>
+            </div>
+
     </section>
 </main>
 <footer>
@@ -257,8 +305,23 @@
         <li><a href="#"> About</a></li>
     </ul>
 </footer>
-<!--<script src="node_modules/require/bin/require-command.js"></script>-->
-<script src="/node_modules/jquery/dist/jquery.js"></script>
-<script src="scripts/script.js"></script>
+<script>
+    function openTab(evt, tabName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("tab");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" activetab", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " activetab";
+    }
+</script>
+
+<!--<script src="node_modules/require/bin/require-command.js"></script>
+<script src="/node_modules/jquery/dist/jquery.js"></script>-->
 </body>
 </html>
