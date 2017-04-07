@@ -38,15 +38,13 @@ ul{
     list-style-type: none;
 }
 body{
+    overflow-x: hidden;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 250px auto;
-    display: -ms-grid;
-    -ms-grid-columns: 250px 82.73%;
-    -ms-grid-rows: 1fr auto ;
-    display: -webkit-box;
-    -webkit-columns: 250px auto;
-
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    align-items: stretch;
 }
 a{
     color: inherit;
@@ -56,31 +54,25 @@ a{
 body>header{
     vertical-align: middle;
     height:62px;
+    width: 100%;
     color:#7be7f8;
     background-color:#454446;
     font-family: "Oswald",sans-serif;
     font-size: 1.25em;
     text-transform: uppercase;
-    grid-column: 1 / 3;
-    grid-row: 1 / 2;
-    -ms-grid-column-span:2;
-    -ms-grid-row:1;
-}
 
+}
 .logo{
     float: left;
     margin: 0 20px;
 }
 nav{
-    width: 250px;
+    flex-basis: 250px;
     font-family: "Oswald",sans-serif;
     text-transform: uppercase;
     color: #fff;
     background-color:#39c2d7;
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-    -ms-grid-column: 1;
-    -ms-grid-row: 2;
+
 }
 nav ul>li>a{
     display: block;
@@ -201,11 +193,8 @@ li a:before{
     padding: 18px 0;
 }
 main{
-    margin: 15px 14px 3em 15px;
-    grid-column: 2 / 2;
-    grid-row: 2 / 3;
-    -ms-grid-column: 2;
-    -ms-grid-row: 2;
+    flex-grow: 2;
+    margin: 15px 14px 60px 15px;
 }
 .top>form{
     float: right;
