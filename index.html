@@ -26,8 +26,8 @@
 <nav>
     <ul>
         <li class="link home"><a href="#">Home</a></li>
-        <li class=" active link documents"><a href="#">Documents</a>
-            <ul>
+        <li class="dropdown link documents"><a href="#">Documents</a>
+            <ul style="display: none">
                 <li class="link incomDocs"><a href="#">Incoming DOCUMENTS<span>&#xf067</span></a></li>
                 <li><a href="#">outgoing DOCUMENTS </a></li>
                 <li><a href="#">  fax DOCUMENTS</a></li>
@@ -48,13 +48,13 @@
 <main>
     <section class="top">
         <button class="btncreate">Create document</button>
-        <ul class="listCreate">
+        <ul style="display: none">
             <li>Incoming Document</li>
             <li>Outgoing Document</li>
             <li>Fax Document</li>
             <li>Warrant</li>
             <li>Job Description</li>
-            <li><ul>Contract
+            <li class="dropdown"><ul>Contract
                 <li>Rent</li>
                 <li>Construction </li>
                 <li>Security services</li>
@@ -74,8 +74,26 @@
                 <li>Other</li>
             </ul></li>
         </ul>
-        <button class="btnattach">Attach document</button>
-
+        <button class="btnattach ">Attach document</button>
+        <ul style="display: none">
+            <li>Contract</li>
+            <li class="dropdown"><ul>Annex
+                <li>Sponsorship </li>
+                <li>Maintenance services</li>
+                <li>Furniture/chairs supply</li>
+                <li>Software development and delivery</li>
+                <li>Licences</li>
+                <li>HW supply</li>
+                <li>NDA </li>
+                <li>Services</li>
+                <li>Supply</li>
+                <li>Work contract</li>
+                <li>Contract with individuals</li>
+                <li>Education, seminars & trainings</li>
+                <li>Travel</li>
+                <li>Other</li>
+            </ul></li>
+        </ul>
         <form action="#">
             <input type="text" placeholder="Search"/>
             <button id="choose" type="submit">&#xf0d7</button>
@@ -106,18 +124,18 @@
                     <h1>Incoming documents</h1>
                     <table>
                         <tr>
-                            <th><p>Incoming<br> date</p></th>
-                            <th>Incoming<br> number</th>
-                            <th>External<br>
+                            <th onclick="sortTable(0)"><p>Incoming<br> date</p></th>
+                            <th onclick="sortTable(1)">Incoming<br> number</th>
+                            <th onclick="sortTable(2)">External<br>
                                 Doc. Index</th>
-                            <th>External<br>
+                            <th onclick="sortTable(3)">External<br>
                                 Doc. Date</th>
-                            <th>Type</th>
-                            <th>Theme</th>
-                            <th>Sent From</th>
-                            <th>Sent To</th>
-                            <th>Executor</th>
-                            <th>Execution<br>
+                            <th onclick="sortTable(4)">Type</th>
+                            <th onclick="sortTable(5)">Theme</th>
+                            <th onclick="sortTable(6)">Sent From</th>
+                            <th onclick="sortTable(7)">Sent To</th>
+                            <th onclick="sortTable(8)">Executor</th>
+                            <th onclick="sortTable(9)">Execution<br>
                                 Date</th>
                             <th>Execution<br>
                                 Mark</th>
@@ -320,7 +338,22 @@
         evt.currentTarget.className += " activetab";
     }
 </script>
+<script>
+    var acc = document.getElementsByClassName("dropdown");
+    var i;
 
+    for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function(){
+            this.classList.toggle("active");
+            var internalMenu = this.lastElementChild;
+            if (internalMenu.style.display === "block") {
+                internalMenu.style.display = "none";
+            } else {
+                internalMenu.style.display = "block";
+            }
+        }
+    }
+</script>
 <!--<script src="node_modules/require/bin/require-command.js"></script>
 <script src="/node_modules/jquery/dist/jquery.js"></script>-->
 </body>

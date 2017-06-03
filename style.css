@@ -90,7 +90,9 @@ nav>ul>li>ul{
     background-color:#e1f6f9;
 
 }
-
+nav>ul>li>ul>li>a:hover{
+    color: #454446;
+}
 nav>ul>li:hover nav>ul>li>ul{
     display: block;
 
@@ -139,11 +141,13 @@ li a:before{
 .top>button:hover{
  cursor: pointer;
 }
+.btnattach:focus {color: #5dcbdc}
 .btnattach{
 
     background: #ecc134;
     color: #fff;
 }
+
 .btncreate{
     background: #a3c644;
     color: #fff;
@@ -160,12 +164,7 @@ li a:before{
     width: 18px;
     height: 20px;
 }
-.btncreate:hover.listCreate{
-    display: block;
-}
-.listCreate{
-    display: none;
-}
+
 .listCreate>ul{
     display: none;
 }
