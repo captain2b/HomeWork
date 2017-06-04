@@ -47,14 +47,15 @@
 </nav>
 <main>
     <section class="top">
-        <button class="btncreate">Create document</button>
-        <ul style="display: none">
+        <button onclick="myDropdown(0)" class="btncreate dropbtn">Create document</button>
+        <ul id="myDropdown" class="dropdown-content">
             <li>Incoming Document</li>
             <li>Outgoing Document</li>
             <li>Fax Document</li>
             <li>Warrant</li>
             <li>Job Description</li>
-            <li class="dropdown"><ul>Contract
+            <li class="dropdownBtn"><a>Contract</a></li></ul>
+            <ul class="innerBtnMenu">
                 <li>Rent</li>
                 <li>Construction </li>
                 <li>Security services</li>
@@ -72,26 +73,26 @@
                 <li>Education, seminars & trainings</li>
                 <li>Travel</li>
                 <li>Other</li>
-            </ul></li>
         </ul>
-        <button class="btnattach ">Attach document</button>
-        <ul style="display: none">
+        <button onclick="myDropdown(1)" class="btnattach dropbtn">Attach document</button>
+        <ul id="myDropdown2" class="dropdown-content2">
             <li>Contract</li>
-            <li class="dropdown"><ul>Annex
-                <li>Sponsorship </li>
-                <li>Maintenance services</li>
-                <li>Furniture/chairs supply</li>
-                <li>Software development and delivery</li>
-                <li>Licences</li>
-                <li>HW supply</li>
-                <li>NDA </li>
-                <li>Services</li>
-                <li>Supply</li>
-                <li>Work contract</li>
-                <li>Contract with individuals</li>
-                <li>Education, seminars & trainings</li>
-                <li>Travel</li>
-                <li>Other</li>
+            <li class="dropdownBtn"><a>Annex</a>
+                <ul class="innerBtnMenu">
+                    <li>Sponsorship </li>
+                    <li>Maintenance services</li>
+                    <li>Furniture/chairs supply</li>
+                    <li>Software development and delivery</li>
+                    <li>Licences</li>
+                    <li>HW supply</li>
+                    <li>NDA </li>
+                    <li>Services</li>
+                    <li>Supply</li>
+                    <li>Work contract</li>
+                    <li>Contract with individuals</li>
+                    <li>Education, seminars & trainings</li>
+                    <li>Travel</li>
+                    <li>Other</li>
             </ul></li>
         </ul>
         <form action="#">
@@ -409,6 +410,37 @@
     }
 }
 </script>
+<script>
+    /* When the user clicks on the button,
+     toggle between hiding and showing the dropdown content */
+    function myDropdown(n) {
+       if(n==0)
+        document.getElementById("myDropdown").classList.toggle("show");
+       if(n==1){
+           document.getElementById("myDropdown2").classList.toggle("show");
+       }
+
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(n,event) {
+        if (!event.target.matches('.dropbtn')) {
+            if(n==0)
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+            if(n==1){
+                var dropdowns = document.getElementsByClassName("dropdown-content2");
+            }
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
+
 <!--<script src="node_modules/require/bin/require-command.js"></script>
 <script src="/node_modules/jquery/dist/jquery.js"></script>-->
 </body>
