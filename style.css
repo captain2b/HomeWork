@@ -62,6 +62,7 @@ body>header{
     text-transform: uppercase;
 
 }
+button:focus {border: transparent;text-decoration: none;}
 .logo{
     float: left;
     margin: 0 20px;
@@ -175,7 +176,6 @@ li a:before{
     display: none;
     position: absolute;
     background-color: #fff;
-    overflow: auto;
     z-index: 1;
     font-family: Source Sans Pro,sans-serif;
     line-height: 2em;
@@ -186,7 +186,6 @@ li a:before{
     position: absolute;
     margin-left: 194px;
     background-color: #fff;
-    overflow: auto;
     z-index: 1;
     font-family: Source Sans Pro,sans-serif;
     line-height: 2em;
@@ -206,25 +205,33 @@ background-color: #eb6a5a;}
     width: 188px;
 }
 .innerBtnMenu{
+    display: none;
     background:#fff;
     color: #454446;
-    display: none;
-    z-index: 2;
     position: absolute;
-    margin-left: 190px;
+    margin-left: 174px;
+    width: 20em;
+    top: 0;
+    border: solid #d2d2d2 1px;
+
 }
-.dropdownBtn:hover .innerBtnMenu{
-    display: block;}
+.innerBtnMenu>li{padding: 0 1em;}
 .innerBtnMenu>li:hover{
     color: #fff;
     background-color: #eb6a5a;
 }
+.dropdown-content2 .innerBtnMenu>li:hover{
+    background-color: #999999;}
+
 .dropdownBtn::after{
     padding-top: 2px;
     float: right;
     font-family: FontAwesome,sans-serif;
     content: '\f0da';
     margin-right: 0.8em;
+}
+.dropdownBtn.active{
+    background-color: inherit;
 }
 .up-search{
     margin: 1em;
