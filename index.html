@@ -122,7 +122,7 @@
 
                     <h1>Incoming documents</h1>
                     <table  id="myTable">
-                        <tr>
+                        <thead><tr>
                             <th onclick="sortTable(0)"><p>Incoming<br> date</p></th>
                             <th onclick="sortTable(1)">Incoming<br> number</th>
                             <th onclick="sortTable(2)">External<br>
@@ -139,8 +139,8 @@
                             <th>Execution<br>
                                 Mark</th>
                             <th>Actions</th>
-                        </tr>
-                        <tr>
+                        </tr></thead>
+                       <tbody><tr>
                             <td>01/11/2014</td>
                             <td> 01-01/6</td>
                             <td> 01-01</td>
@@ -181,7 +181,7 @@
                             <td>07/15/2015</td>
                             <td><div class="cancelled mark">Cancelled</div></td>
                             <td><a>&#xf040</a> <a>&#xf00d</a></td>
-                        </tr>
+                        </tr></tbody>
                     </table>
 
                 </section>
@@ -440,5 +440,46 @@
 </script>
 <!--<script src="node_modules/require/bin/require-command.js"></script>
 <script src="/node_modules/jquery/dist/jquery.js"></script>-->
+<!--<script>
+    function getJson(){
+        var request = new XMLHttpRequest();
+    request.open('GET', 'myTable.json', true);
+
+    request.onload = function() {
+        if (request.status >= 200 && request.status < 400) {
+            // Success!
+            var data = JSON.parse(request.responseText);
+        } else {
+            // We reached our target server, but it returned an error
+
+        }
+    };
+
+    request.onerror = function() {
+        // There was a connection error of some sort
+    };
+
+    request.send();
+    }
+
+</script>-->
+<script type="text/javascript" src="myTable.json"></script>
+<script>
+
+    var request = new XMLHttpRequest();
+    request.open('GET', '/myTable.json', true);
+
+    function f() {
+        if (request.status >= 200 && request.status < 400) {
+            // Success!
+            var data = JSON.parse(request.responseText);
+            console.log(data);
+        } else {
+            // We reached our target server, but it returned an error
+
+        }
+    };
+    f();
+</script>
 </body>
 </html>

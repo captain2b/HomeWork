@@ -62,7 +62,7 @@ body>header{
     text-transform: uppercase;
 
 }
-button:focus {border: transparent;text-decoration: none;}
+button:focus {outline: 0}
 .logo{
     float: left;
     margin: 0 20px;
