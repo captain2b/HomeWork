@@ -114,7 +114,10 @@
             </li>
         </ul>
             <div id="created" class=" tab" style="display:none">
-                <div style="margin: 200px 400px">Something</div>
+                <h1>My documents</h1>
+
+                <div id="demo"></div>
+
             </div>
 
             <div id="under" class="tab" >
@@ -312,6 +315,7 @@
             </div>
 
     </section>
+
 </main>
 <footer>
     <span>Powered by <a href="#">EPAM Systems</a></span>
@@ -322,8 +326,7 @@
         <li><a href="#"> About</a></li>
     </ul>
 </footer>
-<script>
-    function openTab(evt, tabName) {
+<script>function openTab(evt, tabName) {
         var i, x, tablinks;
         x = document.getElementsByClassName("tab");
         for (i = 0; i < x.length; i++) {
@@ -463,23 +466,45 @@
     }
 
 </script>-->
-<script type="text/javascript" src="myTable.json"></script>
 <script>
 
-    var request = new XMLHttpRequest();
-    request.open('GET', '/myTable.json', true);
+    var theader1 = '<table  id="myTable"><thead><tr><th onclick="sortTable(0)"><p>Incoming<br> date</p></th>' +
+        '<th onclick="sortTable(1)">Incoming<br> number</th><th onclick="sortTable(2)">External<br>Doc. Index</th>' +
+        '<th onclick="sortTable(3)">External<br>Doc. Date</th><th onclick="sortTable(4)">Type</th>' +
+        '<th onclick="sortTable(5)">Theme</th><th onclick="sortTable(6)">Sent From</th>' +
+        '<th onclick="sortTable(7)">Sent To</th><th onclick="sortTable(8)">Executor</th>' +
+        '<th onclick="sortTable(9)">Execution<br>Date</th><th>Execution<br>Mark</th><th>Actions</th></tr></thead>';
+    getTable();
 
-    function f() {
-        if (request.status >= 200 && request.status < 400) {
-            // Success!
-            var data = JSON.parse(request.responseText);
-            console.log(data);
-        } else {
-            // We reached our target server, but it returned an error
+    var tables =[{name:"myTable",header:theader1},{name:"incomingTable"},{name:"outgoingTable"},{name:"faxTable"},{name:"sentTable"}]
+    function getTable(){
+        var request = new XMLHttpRequest();
+        request.open('GET', "myTable"+'.json', true);
+        request.onload = function () {
+            if (request.status >= 200 && request.status < 400) {
+                var table = JSON.parse(request.responseText);
+                storeTable(table);
+            } else {
+                alert("Error " +request.status + ': ' + request.statusText);
+            }
+        };
+        request.send();
+    }
+    function storeTable(table){
 
+        var txt= '<tbody>';
+        for(var i = 0; i < table.length; i++)
+        {
+            var obj = table[i];
+            txt+='<tr>';
+            for(var key in obj) {
+                txt += '<td>' + obj[key]+'</td>';
+            }
+            txt+='</tr>';
         }
-    };
-    f();
+        txt+='</tbody>';
+        document.getElementById("demo").innerHTML= theader1+txt;
+    }
 </script>
 </body>
 </html>
