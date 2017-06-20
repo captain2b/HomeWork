@@ -116,7 +116,7 @@
             <div id="created" class=" tab" style="display:none">
                 <h1>My documents</h1>
 
-                <div id="demo"></div>
+                <div id="myTable"></div>
 
             </div>
 
@@ -124,194 +124,24 @@
                 <section class="incoming">
 
                     <h1>Incoming documents</h1>
-                    <table  id="myTable">
-                        <thead><tr>
-                            <th onclick="sortTable(0)"><p>Incoming<br> date</p></th>
-                            <th onclick="sortTable(1)">Incoming<br> number</th>
-                            <th onclick="sortTable(2)">External<br>
-                                Doc. Index</th>
-                            <th onclick="sortTable(3)">External<br>
-                                Doc. Date</th>
-                            <th onclick="sortTable(4)">Type</th>
-                            <th onclick="sortTable(5)">Theme</th>
-                            <th onclick="sortTable(6)">Sent From</th>
-                            <th onclick="sortTable(7)">Sent To</th>
-                            <th onclick="sortTable(8)">Executor</th>
-                            <th onclick="sortTable(9)">Execution<br>
-                                Date</th>
-                            <th>Execution<br>
-                                Mark</th>
-                            <th>Actions</th>
-                        </tr></thead>
-                       <tbody><tr>
-                            <td>01/11/2014</td>
-                            <td> 01-01/6</td>
-                            <td> 01-01</td>
-                            <td> 07/15/2015</td>
-                            <td>Note</td>
-                            <td>Theme</td>
-                            <td>Organization 2</td>
-                            <td>EPAM</td>
-                            <td>Ivanov Ivan</td>
-                            <td>10/15/2015</td>
-                            <td><div class="signed mark">Signed</div></td>
-                            <td><a>&#xf040</a> <a>&#xf00d</a></td>
-                        </tr>
-                        <tr>
-                            <td>08/18/2017</td>
-                            <td> 01-02/5</td>
-                            <td> 01-02</td>
-                            <td> 07/15/2018</td>
-                            <td>Letter</td>
-                            <td>Whatever</td>
-                            <td>Organization 1</td>
-                            <td>EPAM</td>
-                            <td>Smirnoff Sasha</td>
-                            <td>15/15/2015</td>
-                            <td><div class="mark awaits">Awaits</div></td>
-                            <td><a>&#xf040</a> <a>&#xf00d</a></td>
-                        </tr>
-                        <tr>
-                            <td>07/15/2015</td>
-                            <td> 01-02/6</td>
-                            <td> 01-01</td>
-                            <td> 08/15/2015</td>
-                            <td>Letter</td>
-                            <td>Whatever</td>
-                            <td>Organization 1</td>
-                            <td>EPAM</td>
-                            <td>Sidorov Bob</td>
-                            <td>07/15/2015</td>
-                            <td><div class="cancelled mark">Cancelled</div></td>
-                            <td><a>&#xf040</a> <a>&#xf00d</a></td>
-                        </tr></tbody>
-                    </table>
+                    <div  id="incomingTable"></div>
 
                 </section>
                 <section class="outgoing">
                     <h1>Outgoing documents</h1><a>Add element</a>
-                    <table>
-                        <tr>
-                            <th><p>Outgoing date</p></th>
-                            <th>Reg. number</th>
-                            <th>Index</th>
-                            <th>Type</th>
-                            <th>Theme</th>
-                            <th>Sent To</th>
-                            <th>Executor</th>
-                            <th>Signatory</th>
-                            <th>Notes</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
-                        <tr>
-                            <td>07/15/2015</td>
-                            <td> 01-01/6</td>
-                            <td> 01-01</td>
-                            <td>Letter</td>
-                            <td>Whatever</td>
-                            <td>Organization 1</td>
-                            <td>Ivanov Ivan</td>
-                            <td>Petrov Petr</td>
-                            <td></td>
-                            <td><div class="approved mark">approved</div></td>
-                            <td><a>&#xf040</a> <a>&#xf00d</a></td>
-                        </tr>
-                        <tr>
-                            <td>07/15/2015</td>
-                            <td> 01-01/6</td>
-                            <td> 01-01</td>
-                            <td>Note</td>
-                            <td>Whatever</td>
-                            <td>Organization 1</td>
-                            <td>Ivanov Ivan</td>
-                            <td>Petrov Petr</td>
-                            <td></td>
-                            <td><div class="helded mark">helded</div></td>
-                            <td><a>&#xf040</a> <a>&#xf00d</a></td>
-                        </tr>
-                        <tr>
-                            <td>07/15/2015</td>
-                            <td> 01-01/6</td>
-                            <td> 01-01</td>
-                            <td>Letter</td>
-                            <td>Whatever</td>
-                            <td>Organization 1</td>
-                            <td>Ivanov Ivan</td>
-                            <td>Petrov Petr</td>
-                            <td></td>
-                            <td><div class="changed mark">changed</div></td>
-                            <td><a>&#xf040</a> <a>&#xf00d</a></td>
-                        </tr>
-                    </table>
+                    <div id="outgoingTable"></div>
                 </section>
                 <section class="fax">
                     <h1>Fax documents</h1><a>Add element</a>
-                    <table>
-                        <tr>
-                            <th><p>Incoming <br>date</p></th>
-                            <th>External<br>
-                                Doc. Index</th>
-                            <th>External<br>
-                                Doc. Date</th>
-                            <th>Type</th>
-                            <th>Theme</th>
-                            <th>Sent From</th>
-                            <th>Sent To</th>
-                            <th>Executor</th>
-                            <th>Execution<br>
-                                Date</th>
-                            <th>Execution<br>
-                                Mark</th>
-                            <th>Actions</th>
-                        </tr>
-                        <tr>
-                            <td>07/15/2015</td>
-                            <td> 01-01</td>
-                            <td> 07/15/2015</td>
-                            <td>Letter</td>
-                            <td>Whatever</td>
-                            <td>Organization 1</td>
-                            <td>EPAM</td>
-                            <td>Ivanov Ivan</td>
-                            <td>10/15/2015</td>
-                            <td><div class="deleted mark">deleted</div></td>
-                            <td><a>&#xf040</a> <a>&#xf00d</a></td>
-                        </tr>
-                        <tr>
-                            <td>07/15/2015</td>
-                            <td> 01-01</td>
-                            <td> 07/15/2015</td>
-                            <td>Letter</td>
-                            <td>Whatever</td>
-                            <td>Organization 1</td>
-                            <td>EPAM</td>
-                            <td>Ivanov Ivan</td>
-                            <td>15/15/2015</td>
-                            <td><div class="helded mark">helded</div></td>
-                            <td><a>&#xf040</a> <a>&#xf00d</a></td>
-                        </tr>
-                        <tr>
-                            <td>07/15/2015</td>
-                            <td> 01-01</td>
-                            <td> 07/15/2015</td>
-                            <td>Letter</td>
-                            <td>Whatever</td>
-                            <td>Organization 1</td>
-                            <td>EPAM</td>
-                            <td>Ivanov Ivan</td>
-                            <td>07/15/2015</td>
-                            <td><div class="changed mark">changed</div></td>
-                            <td><a>&#xf040</a> <a>&#xf00d</a></td>
-                        </tr>
-                    </table>
+                    <div id="faxTable"></div>
 
                 </section>
 
             </div>
 
             <div id="sent" class="tab" style="display:none">
-                <div style="margin: 200px 400px">Something</div>
+                <h1>Sent documents</h1>
+                <div id="sentTable"></div>
             </div>
 
     </section>
@@ -356,9 +186,79 @@
         }
     }
 </script>
-<script>function sortTable(n) {
+<script>
+    /* When the user clicks on the button,
+     toggle between hiding and showing the dropdown content */
+    function myDropdown(n) {
+       if(n==0)
+        document.getElementById("myDropdown").classList.toggle("show");
+       if(n==1){
+           document.getElementById("myDropdown2").classList.toggle("show");
+       }
+
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(n,event) {
+        if (!event.target.matches('.dropbtn')) {
+            if(n==0)
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+            if(n==1){
+                var dropdowns = document.getElementsByClassName("dropdown-content2");
+            }
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
+<script>
+
+    loadTable('myTable');
+    loadTable('sentTable');
+    loadTable('incomingTable');
+    loadTable('outgoingTable');
+    loadTable('faxTable');
+
+    function loadTable(tableID){
+        var request = new XMLHttpRequest();
+        request.open('GET', tableID+'.json', true);
+        request.onload = function () {
+            if (request.status >= 200 && request.status < 400) {
+                var table = JSON.parse(request.responseText);
+                storeTable(table,tableID);
+            } else {
+                alert("Error " +request.status + ': ' + request.statusText);
+            }
+        };
+        request.send();
+    }
+    function storeTable(table,tableID){
+
+        var thead='';
+        for(var key in table[0]) {
+            thead+= table[0][key];
+        }
+        var txt= '<tbody>';
+        for(var i = 1; i < table.length; i++)
+        {
+            var obj = table[i];
+            txt+='<tr>';
+            for(var key in obj) {
+                txt += '<td>' + obj[key]+'</td>';
+            }
+            txt+='</tr>';
+        }
+        txt+='</tbody></table>';
+        document.getElementById(tableID).innerHTML=thead+txt;}
+</script>
+<script>function sortTable(n,tableID) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementById("myTable");
+    table = document.getElementById(tableID);
     switching = true;
     //Set the sorting direction to ascending:
     dir = "asc";
@@ -410,101 +310,6 @@
         }
     }
 }
-</script>
-<script>
-    /* When the user clicks on the button,
-     toggle between hiding and showing the dropdown content */
-    function myDropdown(n) {
-       if(n==0)
-        document.getElementById("myDropdown").classList.toggle("show");
-       if(n==1){
-           document.getElementById("myDropdown2").classList.toggle("show");
-       }
-
-    }
-
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function(n,event) {
-        if (!event.target.matches('.dropbtn')) {
-            if(n==0)
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-            if(n==1){
-                var dropdowns = document.getElementsByClassName("dropdown-content2");
-            }
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-</script>
-<!--<script src="node_modules/require/bin/require-command.js"></script>
-<script src="/node_modules/jquery/dist/jquery.js"></script>-->
-<!--<script>
-    function getJson(){
-        var request = new XMLHttpRequest();
-    request.open('GET', 'myTable.json', true);
-
-    request.onload = function() {
-        if (request.status >= 200 && request.status < 400) {
-            // Success!
-            var data = JSON.parse(request.responseText);
-        } else {
-            // We reached our target server, but it returned an error
-
-        }
-    };
-
-    request.onerror = function() {
-        // There was a connection error of some sort
-    };
-
-    request.send();
-    }
-
-</script>-->
-<script>
-
-    var theader1 = '<table  id="myTable"><thead><tr><th onclick="sortTable(0)"><p>Incoming<br> date</p></th>' +
-        '<th onclick="sortTable(1)">Incoming<br> number</th><th onclick="sortTable(2)">External<br>Doc. Index</th>' +
-        '<th onclick="sortTable(3)">External<br>Doc. Date</th><th onclick="sortTable(4)">Type</th>' +
-        '<th onclick="sortTable(5)">Theme</th><th onclick="sortTable(6)">Sent From</th>' +
-        '<th onclick="sortTable(7)">Sent To</th><th onclick="sortTable(8)">Executor</th>' +
-        '<th onclick="sortTable(9)">Execution<br>Date</th><th>Execution<br>Mark</th><th>Actions</th></tr></thead>';
-    getTable();
-
-    var tables =[{name:"myTable",header:theader1},{name:"incomingTable"},{name:"outgoingTable"},{name:"faxTable"},{name:"sentTable"}]
-    function getTable(){
-        var request = new XMLHttpRequest();
-        request.open('GET', "myTable"+'.json', true);
-        request.onload = function () {
-            if (request.status >= 200 && request.status < 400) {
-                var table = JSON.parse(request.responseText);
-                storeTable(table);
-            } else {
-                alert("Error " +request.status + ': ' + request.statusText);
-            }
-        };
-        request.send();
-    }
-    function storeTable(table){
-
-        var txt= '<tbody>';
-        for(var i = 0; i < table.length; i++)
-        {
-            var obj = table[i];
-            txt+='<tr>';
-            for(var key in obj) {
-                txt += '<td>' + obj[key]+'</td>';
-            }
-            txt+='</tr>';
-        }
-        txt+='</tbody>';
-        document.getElementById("demo").innerHTML= theader1+txt;
-    }
 </script>
 </body>
 </html>

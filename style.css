@@ -445,7 +445,7 @@ table td:last-child>a:last-child:hover{
 .approved.mark{
      background: #39b7ac;
  }
-.cancelled.mark{
+.canceled.mark{
     background: #b32746;
 }
 .helded.mark{
