@@ -115,7 +115,6 @@
         </ul>
             <div id="created" class=" tab" style="display:none">
                 <h1>My documents</h1>
-
                 <div id="myTable"></div>
 
             </div>
@@ -162,6 +161,9 @@
         for (i = 0; i < x.length; i++) {
             x[i].style.display = "none";
         }
+        if(x==document.getElementById("created")){loadTable('myTable');}
+        else if(x.id=='sent'){loadTable('sentTable');}
+        else{}
         tablinks = document.getElementsByClassName("tablink");
         for (i = 0; i < x.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" activetab", "");
@@ -218,8 +220,6 @@
 </script>
 <script>
 
-    loadTable('myTable');
-    loadTable('sentTable');
     loadTable('incomingTable');
     loadTable('outgoingTable');
     loadTable('faxTable');
@@ -256,12 +256,32 @@
         txt+='</tbody></table>';
         document.getElementById(tableID).innerHTML=thead+txt;}
 </script>
-<script>function sortTable(n,tableID) {
+<script>
+    function underline(n,tableID,dir) {
+        var hr = document.getElementById(tableID).getElementsByTagName("TH");
+
+            for (var i = 0; i < hr.length - 1; i++) {
+                if (i == n) {
+                    hr[i].classList.add("tableSorted");
+                    if (dir == "asc"){
+                        hr[i].classList.add("reverse");
+                    }
+                    else {
+                        hr[i].classList.remove("reverse");}
+                }
+                else {
+                    hr[i].classList.remove("tableSorted");
+                }
+            }
+
+    }
+    function sortTable(n,tableID) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById(tableID);
     switching = true;
     //Set the sorting direction to ascending:
     dir = "asc";
+    underline(n,tableID,dir);
     /*Make a loop that will continue until
      no switching has been done:*/
     while (switching) {
@@ -306,6 +326,7 @@
             if (switchcount == 0 && dir == "asc") {
                 dir = "desc";
                 switching = true;
+                underline(n,tableID,dir);
             }
         }
     }
