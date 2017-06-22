@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -11,8 +12,16 @@
     <link rel="icon"
           type="image/png"
           href="img/favicon.png">
+    <script>
+        window.openTab = ui.openTab;
+        window.sortTable = ui.sortTable;
+        window.myDropdown = ui.myDropdown;
+
+    </script>
+
 </head>
 <body>
+<script src="bundle.js"></script>
 <header>
 
     <a class="logo" href="/">
@@ -26,7 +35,7 @@
 <nav>
     <ul>
         <li class="link home"><a href="#">Home</a></li>
-        <li class="dropdown link documents"><a href="#">Documents</a>
+        <li class="dropdown link documents" onclick="ui.dropMenu(this)"><a href="#">Documents</a>
             <ul style="display: none">
                 <li class="link incomDocs"><a href="#">Incoming DOCUMENTS<span>&#xf067</span></a></li>
                 <li><a href="#">outgoing DOCUMENTS </a></li>
@@ -46,15 +55,16 @@
     </ul>
 </nav>
 <main>
+
     <section class="top">
-        <button onclick="myDropdown(0)" class="btncreate dropbtn">Create document</button>
+        <button onclick="ui.myDropdown(0)" class="btncreate dropbtn">Create document</button>
         <ul id="myDropdown" class="dropdown-content">
             <li>Incoming Document</li>
             <li>Outgoing Document</li>
             <li>Fax Document</li>
             <li>Warrant</li>
             <li>Job Description</li>
-            <li class=" dropdown dropdownBtn"><a>Contract</a>
+            <li class=" dropdown dropdownBtn" onclick="ui.dropMenu(this)"><a>Contract</a>
             <ul class="innerBtnMenu">
                 <li>Rent</li>
                 <li>Construction </li>
@@ -77,7 +87,7 @@
         <button onclick="myDropdown(1)" class="btnattach dropbtn">Attach document</button>
         <ul id="myDropdown2" class="dropdown-content2">
             <li>Contract</li>
-            <li class="dropdown dropdownBtn"><a>Annex</a>
+            <li class="dropdown dropdownBtn" onclick="ui.dropMenu(this)"><a>Annex</a>
                 <ul class="innerBtnMenu">
                     <li>Sponsorship </li>
                     <li>Maintenance services</li>
@@ -103,20 +113,47 @@
     <section class="content">
 
         <ul>
-            <li class="tablink" onclick="openTab(event,'created')">
+            <li class="tablink" onclick="ui.openTab(event,'my')">
                 <a href="#">created by me</a>
             </li>
-            <li class="tablink activetab" onclick="openTab(event,'under')">
+            <li class="tablink activetab" onclick="ui.openTab(event,'under')">
                 <a href="#">under my approval</a>
             </li>
-            <li class="tablink" onclick="openTab(event,'sent')">
+            <li class="tablink" onclick="ui.openTab(event,'sent')">
                 <a href="#">sent for group</a>
             </li>
         </ul>
-            <div id="created" class=" tab" style="display:none">
-                <h1>My documents</h1>
+            <div id="my" class=" tab" style="display:none">
+                <h1>My documents</h1><a onclick="document.getElementById('frm1').style.display='flex'">Add element</a>
                 <div id="myTable"></div>
 
+                <form id="frm1">
+                    <p>IncomingNumber: <input type="text" name="fname"><br>
+                    External Doc. Index: <input type="text" name="lname"><br>
+                    External Doc. Date: <input type="text" name="fname"><br>
+                    Theme: <input type="text" name="fname"><br>
+                    Type: <input type="text" name="fname"><br></p>
+                    <p>
+                        Sent From: <input type="text" name="fname"><br>
+                        Sent To: <input type="text" name="fname"><br>
+                        Executor: <input type="text" name="fname"><br>
+                        Execution Date: <input type="text" name="fname"><br>
+                        Execution Mark:   <input list="marks">
+                        <datalist id="marks">
+                            <option value="changed">
+                            <option value="signed">
+                            <option value="awaits">
+                            <option value="canceled">
+                            <option value="approved">
+                        </datalist><br>
+                    </p>
+                    <p><br>
+                    <input type="button" onclick="addRow('myTable')" value="Add document"><br>
+                    <input type="button" onclick="document.getElementById('frm1').style.display='none'" value="Close">
+                    </p>
+                   <!-- -->
+
+                </form>
             </div>
 
             <div id="under" class="tab" >
@@ -155,182 +192,7 @@
         <li><a href="#"> About</a></li>
     </ul>
 </footer>
-<script>function openTab(evt, tabName) {
-        var i, x, tablinks;
-        x = document.getElementsByClassName("tab");
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        if(x==document.getElementById("created")){loadTable('myTable');}
-        else if(x.id=='sent'){loadTable('sentTable');}
-        else{}
-        tablinks = document.getElementsByClassName("tablink");
-        for (i = 0; i < x.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" activetab", "");
-        }
-        document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.className += " activetab";
-    }
-</script>
-<script>
-    var acc = document.getElementsByClassName("dropdown");
-    var i;
-
-    for (i = 0; i < acc.length; i++) {
-        acc[i].onclick = function(){
-            this.classList.toggle("active");
-            var internalMenu = this.lastElementChild;
-            if (internalMenu.style.display === "block") {
-                internalMenu.style.display = "none";
-            } else {
-                internalMenu.style.display = "block";
-            }
-        }
-    }
-</script>
-<script>
-    /* When the user clicks on the button,
-     toggle between hiding and showing the dropdown content */
-    function myDropdown(n) {
-       if(n==0)
-        document.getElementById("myDropdown").classList.toggle("show");
-       if(n==1){
-           document.getElementById("myDropdown2").classList.toggle("show");
-       }
-
-    }
-
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function(n,event) {
-        if (!event.target.matches('.dropbtn')) {
-            if(n==0)
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-            if(n==1){
-                var dropdowns = document.getElementsByClassName("dropdown-content2");
-            }
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-</script>
-<script>
-
-    loadTable('incomingTable');
-    loadTable('outgoingTable');
-    loadTable('faxTable');
-
-    function loadTable(tableID){
-        var request = new XMLHttpRequest();
-        request.open('GET', tableID+'.json', true);
-        request.onload = function () {
-            if (request.status >= 200 && request.status < 400) {
-                var table = JSON.parse(request.responseText);
-                storeTable(table,tableID);
-            } else {
-                alert("Error " +request.status + ': ' + request.statusText);
-            }
-        };
-        request.send();
-    }
-    function storeTable(table,tableID){
-
-        var thead='';
-        for(var key in table[0]) {
-            thead+= table[0][key];
-        }
-        var txt= '<tbody>';
-        for(var i = 1; i < table.length; i++)
-        {
-            var obj = table[i];
-            txt+='<tr>';
-            for(var key in obj) {
-                txt += '<td>' + obj[key]+'</td>';
-            }
-            txt+='</tr>';
-        }
-        txt+='</tbody></table>';
-        document.getElementById(tableID).innerHTML=thead+txt;}
-</script>
-<script>
-    function underline(n,tableID,dir) {
-        var hr = document.getElementById(tableID).getElementsByTagName("TH");
-
-            for (var i = 0; i < hr.length - 1; i++) {
-                if (i == n) {
-                    hr[i].classList.add("tableSorted");
-                    if (dir == "asc"){
-                        hr[i].classList.add("reverse");
-                    }
-                    else {
-                        hr[i].classList.remove("reverse");}
-                }
-                else {
-                    hr[i].classList.remove("tableSorted");
-                }
-            }
-
-    }
-    function sortTable(n,tableID) {
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementById(tableID);
-    switching = true;
-    //Set the sorting direction to ascending:
-    dir = "asc";
-    underline(n,tableID,dir);
-    /*Make a loop that will continue until
-     no switching has been done:*/
-    while (switching) {
-        //start by saying: no switching is done:
-        switching = false;
-        rows = table.getElementsByTagName("TR");
-        /*Loop through all table rows (except the
-         first, which contains table headers):*/
-        for (i = 1; i < (rows.length - 1); i++) {
-            //start by saying there should be no switching:
-            shouldSwitch = false;
-            /*Get the two elements you want to compare,
-             one from current row and one from the next:*/
-            x = rows[i].getElementsByTagName("TD")[n];
-            y = rows[i + 1].getElementsByTagName("TD")[n];
-            /*check if the two rows should switch place,
-             based on the direction, asc or desc:*/
-            if (dir == "asc") {
-                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                    //if so, mark as a switch and break the loop:
-                    shouldSwitch= true;
-                    break;
-                }
-            } else if (dir == "desc") {
-                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                    //if so, mark as a switch and break the loop:
-                    shouldSwitch= true;
-                    break;
-                }
-            }
-        }
-        if (shouldSwitch) {
-            /*If a switch has been marked, make the switch
-             and mark that a switch has been done:*/
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-            //Each time a switch is done, increase this count by 1:
-            switchcount ++;
-        } else {
-            /*If no switching has been done AND the direction is "asc",
-             set the direction to "desc" and run the while loop again.*/
-            if (switchcount == 0 && dir == "asc") {
-                dir = "desc";
-                switching = true;
-                underline(n,tableID,dir);
-            }
-        }
-    }
-}
-</script>
+<script src="script.js"></script>
+<script src="tablejs.js"></script>
 </body>
 </html>

@@ -74,6 +74,7 @@ nav{
     font-family: "Oswald",sans-serif;
     text-transform: uppercase;
     color: #fff;
+    min-height: 600px;
     background-color:#39c2d7;
 
 }
@@ -498,3 +499,18 @@ footer>ul>li:last-child>a::before{
 footer a:hover{
     color:white;
 }
+#frm1{
+    display: none;
+    background: white;
+    border: solid 2px #30a5b7;
+    z-index: 2;
+    padding: 10px;
+    position: absolute;
+    top: 12em;
+    left: 34em;
+}
+
+#frm1>p {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;}
