@@ -12,12 +12,12 @@
     <link rel="icon"
           type="image/png"
           href="img/favicon.png">
-    <script>
+   <!-- <script>
         window.openTab = ui.openTab;
         window.sortTable = ui.sortTable;
         window.myDropdown = ui.myDropdown;
 
-    </script>
+    </script>-->
 
 </head>
 <body>
@@ -64,7 +64,7 @@
             <li>Fax Document</li>
             <li>Warrant</li>
             <li>Job Description</li>
-            <li class=" dropdown dropdownBtn" onclick="ui.dropMenu(this)"><a>Contract</a>
+            <li class=" dropdown dropdownBtn"><a>Contract</a>
             <ul class="innerBtnMenu">
                 <li>Rent</li>
                 <li>Construction </li>
@@ -84,10 +84,10 @@
                 <li>Travel</li>
                 <li>Other</li>
         </ul></li></ul>
-        <button onclick="myDropdown(1)" class="btnattach dropbtn">Attach document</button>
+        <button onclick="ui.myDropdown(1)" class="btnattach dropbtn">Attach document</button>
         <ul id="myDropdown2" class="dropdown-content2">
             <li>Contract</li>
-            <li class="dropdown dropdownBtn" onclick="ui.dropMenu(this)"><a>Annex</a>
+            <li class="dropdown dropdownBtn"><a>Annex</a>
                 <ul class="innerBtnMenu">
                     <li>Sponsorship </li>
                     <li>Maintenance services</li>
@@ -125,6 +125,7 @@
         </ul>
             <div id="my" class=" tab" style="display:none">
                 <h1>My documents</h1><a onclick="document.getElementById('frm1').style.display='flex'">Add element</a>
+
                 <div id="myTable"></div>
 
                 <form id="frm1">
@@ -148,7 +149,7 @@
                         </datalist><br>
                     </p>
                     <p><br>
-                    <input type="button" onclick="addRow('myTable')" value="Add document"><br>
+                    <input type="button" onclick="ui.addRow('myTable')" value="Add document"><br>
                     <input type="button" onclick="document.getElementById('frm1').style.display='none'" value="Close">
                     </p>
                    <!-- -->
@@ -192,7 +193,28 @@
         <li><a href="#"> About</a></li>
     </ul>
 </footer>
-<script src="script.js"></script>
-<script src="tablejs.js"></script>
+<!--<script src="script.js"></script>
+<script src="tablejs.js"></script>-->
+<script>
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+
+        if ((!event.target.matches('.dropbtn')) && (!event.target.matches('.dropdown-content'))) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var dropdowns2 = document.getElementsByClassName("dropdown-content2");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                var openDropdown2 = dropdowns2[i];
+
+                if (openDropdown2.classList.contains('show')) {
+                    openDropdown2.classList.remove('show');
+                }
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    };
+</script>
 </body>
 </html>
